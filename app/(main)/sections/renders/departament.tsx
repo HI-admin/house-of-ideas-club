@@ -30,17 +30,17 @@ const departments : departmentsType[] = [
         description: [
             'Web development',
             'Database management',
-            'Research',
-            'Design service'
+            'Research and developement',
+            'Email marketing'
 
         ]
     },
       {
-        name: 'External Resources',
+        name: 'External Relations',
         description: [
-            'Contacting trainers',
-            'Contacting hosts',
+            'Contacting trainers / hosts',
             'Contacting sponsors',
+            'Opportunities scouting',
             'Commercial service'
 
         ]
@@ -52,7 +52,6 @@ const departments : departmentsType[] = [
             'Recruitments',
             'Internship facilitation for partners',
 
-
         ]
     },
     {
@@ -60,8 +59,8 @@ const departments : departmentsType[] = [
         description: [
             'making minutes',
             'creating reports',
+            'Administrative representaion',
             'Electronic journal'
-
 
         ]
     },
