@@ -29,8 +29,7 @@ const PageContent = ({ eventdata }: { eventdata: Events[] }) => {
     const modalRef = useRef<ModalBodyRef>(null);
     const [showToast, setShowToast] = useState(false);
 
-    // FIX: Guard against empty array — if somehow PageContent renders with no data,
-    // return null safely instead of crashing on eventdata[0].eventpic etc.
+
     if (!eventdata || eventdata.length === 0) {
         return null;
     }
@@ -271,15 +270,12 @@ const fetcher = async (key: string) => {
     return fetchedData.data as Events[] | [];
 };
 
-// FIX 2: In Next.js 15+, params is a Promise — must be unwrapped with React.use()
-// before accessing any property like params.eventid.
+
 export default function Index({ params }: { params: Promise<{ eventid: number }> }) {
     const { eventid } = use(params);
     const { data, isLoading } = useSWR<Events[]>(`events|${eventid}`, fetcher);
 
-    // FIX 3: notFound() must NOT be called inline in JSX (e.g. as a ternary value).
-    // It throws internally and must be called in the component body (not during render
-    // of a child). Calling it here in the function body before the return is correct.
+
     if (!isLoading && (!data || data.length === 0)) {
         notFound();
     }
